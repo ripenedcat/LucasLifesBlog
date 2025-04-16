@@ -4,11 +4,11 @@ date = '2025-04-16T13:52:22+08:00'
 title = "Deploy Hugo App to Azure Static Web App"
 description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Test"
+    "Azure"
 ]
 tags = [
-    "emoji",
-    "syntax"
+    "Azure Static Web App",
+    "Hugo"
 ]
 image = "the-creative-exchange-d2zvqp3fpro-unsplash.jpg"
 # draft = true

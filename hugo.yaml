@@ -199,7 +199,7 @@ params:
         cover:
             enabled: true
         content:
-            enabled: true
+            enabled: false
 
 # 显示文章的最后修改时间
 frontmatter:

@@ -32,7 +32,7 @@ languages:
 services:
     # Change it to your Disqus shortname before using
     disqus:
-        shortname: "hugo-theme-stack"
+        shortname: "lucas-lifes"
     # GA Tracking ID
     googleAnalytics:
         id:

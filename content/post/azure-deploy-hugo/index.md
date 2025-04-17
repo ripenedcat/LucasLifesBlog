@@ -15,7 +15,8 @@ image = "the-creative-exchange-d2zvqp3fpro-unsplash.jpg"
 +++
 
 # Background
-You may have already seen [this article](https://learn.microsoft.com/en-us/azure/static-web-apps/publish-hugo) from Microsoft for how to deploy a Hugo app to Azure Static Web App, but the truth is that it is not working. The build will fail and You will see below errors from Github Actions.
+Although [Microsoft’s documentation](https://learn.microsoft.com/en-us/azure/static-web-apps/publish-hugo) on deploying Hugo sites to Azure Static Web Apps looks straightforward, following it as-is will cause your GitHub Actions build to fail with errors. The missing piece is the `app_build_command` setting in the workflow.
+
 ![Github Action failed](github-action-failed.png)
 
 # Resolution

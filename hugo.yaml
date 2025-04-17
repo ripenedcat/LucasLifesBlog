@@ -35,7 +35,7 @@ services:
         shortname: "lucas-lifes"
     # GA Tracking ID
     googleAnalytics:
-        id:
+        id: G-5W6ZZGJLGV
 
 pagination:
     pagerSize: 3

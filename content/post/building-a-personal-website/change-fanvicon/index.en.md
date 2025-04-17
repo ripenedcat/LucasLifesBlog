@@ -1,6 +1,6 @@
 +++
 author = "Lucas Huang"
-date = '2025-04-16T13:52:22+08:00'
+date = '2025-04-17T13:52:22+08:00'
 title = "Customize a Nice Favicon to Your Website"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [

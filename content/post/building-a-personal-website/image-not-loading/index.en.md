@@ -7,7 +7,7 @@ categories = [
 ]
 tags = [
     "Hugo",
-    "multi-language"
+    "Multilingual"
 ]
 draft = false
 +++

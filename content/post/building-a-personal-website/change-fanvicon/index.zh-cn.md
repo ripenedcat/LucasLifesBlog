@@ -4,11 +4,11 @@ date = '2025-04-17T13:52:22+08:00'
 title = "自定义Hugo静态站点图标"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Personal Blog"
+    "个人博客"
 ]
 tags = [
     "Hugo",
-    "Stack-Theme"
+    "Stack主题"
 ]
 image = "cover.png"
 draft = false

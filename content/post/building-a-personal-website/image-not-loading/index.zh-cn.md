@@ -15,7 +15,7 @@ draft = false
 
 
 
-最近在使用 Hugo 生成静态站点时，遇到了一次颇具迷惑性的多语言问题：明明一篇中文文章（index.zh-cn.md）已将 front matter 里的“draft = false”设置好，并且发布日期也是当前时间，然而站点在运行 `hugo server`时却始终无法正常预览这篇文章的图片。
+最近在使用 Hugo 生成静态站点时，遇到了一次颇具迷惑性的多语言问题：明明一篇中文文章（index.zh-cn.md）已将 front matter 里的“draft = false”设置好，并且发布日期也是当前时间，然而站点在运行 `hugo server`时却始终无法正常预览这篇文章的图片,比如下图。
 
 ![image-not-loading](image-not-loading.png)
 

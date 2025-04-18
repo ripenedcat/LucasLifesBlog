@@ -43,4 +43,4 @@ params:
 
 Check out the final result below—it looks great, doesn't it?
 
-![site favicon](site-favicon.png)
+![site-favicon.png](site-favicon.png)

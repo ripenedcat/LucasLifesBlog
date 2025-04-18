@@ -42,6 +42,6 @@ params:
 
 看看下面的最终效果是不是很好呢！
 
-![alt text](image.png)
+![site-favicon](site-favicon.png)
 
 

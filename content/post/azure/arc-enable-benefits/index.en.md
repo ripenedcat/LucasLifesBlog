@@ -15,8 +15,7 @@ tags = [
 
 In many customer scenarios, there's a mounting need to automate the process of enabling Azure Benefits across multiple Azure Arc Servers – especially since there isn't a native Azure Policy or CLI command to handle this. In this article, I'll share a PowerShell solution that tackles this challenge seamlessly.
 
-# Scenario
----    
+# Scenario   
 Imagine managing a large environment where numerous Azure Arc Servers are deployed, but not all have Azure Benefits enabled. Below is a snapshot of the Azure Portal showing where you can view the Azure Benefits feature:
 
 ![Azure Benefits on Azure Arc Portal](image-cfc1572a-ea87-438b-9755-fcf89eb5f622.png)

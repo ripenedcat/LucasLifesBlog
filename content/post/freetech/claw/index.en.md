@@ -34,7 +34,7 @@ First, let me introduce ClawCloud, a cloud service launched by Alibaba in Singap
    ![Create a New Container](Create-a-New-Container.png)
 
 5. Name your app. Most importantly, in the **Image Name** field, you can enter any image from DockerHub. Here, I’ll use the popular *Lobe-Chat* as an example.  
-   Meanwhile, you can freely adjust the CPU and memory as needed. Since you get $5 credit per month, just ensure the **Total** cost on the left stays at $0.16 (per hour) or less. This way, your monthly expenditure will be about $4.8 and will not exceed the $5 free quota—meaning it’ll be permanently free!
+   Meanwhile, you can freely adjust the CPU and memory as needed. Since you get $5 credit per month, just ensure the **Total** cost on the left stays at $0.16 (per day) or less. This way, your monthly expenditure will be about $4.8 and will not exceed the $5 free quota—meaning it’ll be permanently free!
 
    ![Free container deployment settings](Deploy-a-Free-Container.png)
 

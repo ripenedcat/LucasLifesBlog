@@ -24,7 +24,7 @@ First, let me introduce ClawCloud, a cloud service launched by Alibaba in Singap
 
    ![Free registration on ClawCloud](claw-cloud-free-register.png)
 
-2. During your first registration, you’ll be asked to set a region and workspace name. You can choose Japan or Singapore for faster access. In my tests, the Japan region can be directly accessed from mainland China!
+2. During your first registration, you’ll be asked to set a region and workspace name. You can choose Japan or Singapore for faster access. 
 
 3. Once your workspace is created, you can start creating containers! Click on **App Launchpad**.
    ![Japan workspace and App Launchpad](Claw-Cloud-Japan-Workspace-and-App-Launchpad.png)

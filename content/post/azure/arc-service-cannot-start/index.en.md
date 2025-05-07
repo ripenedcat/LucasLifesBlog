@@ -10,7 +10,7 @@ tags = [
     "Azure Arc"
 ]
 image = "arc-installation-failed.png"
-draft = true
+# draft = true
 +++
 
 # Introduction

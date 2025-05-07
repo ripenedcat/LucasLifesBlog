@@ -75,7 +75,7 @@ To increase the timeout value in the registry, follow these steps:
 
 - Locate and then click the following registry key: `Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control`
 
-- Right-click the ServicesPipeTimeout DWORD value, and then click Modify (add this key if not exist).
+- Right-click the **ServicesPipeTimeout** DWORD value, and then click Modify (add this key if not exist).
 
 - Click Decimal.
 

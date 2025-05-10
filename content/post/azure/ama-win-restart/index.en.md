@@ -116,6 +116,8 @@ Start-ScheduledTask -TaskName "AMA $currentVersion - disable"
 
 Check the Task Scheduler GUI or use `Get-ScheduledTask` to monitor history and status.
 
+![Task Scheduler GUI for Triggering tasks](Task-Scheduler-to-Restart-AMA.png)
+
 # 5. Clean Up
 
 When you no longer need the task, unregister it:

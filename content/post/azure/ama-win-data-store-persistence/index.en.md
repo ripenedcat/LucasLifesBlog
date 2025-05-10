@@ -1,7 +1,7 @@
 +++
 author = "Lucas Huang"
-date = '2025-05-11T15:49:22+08:00'
-title = "Azure Monitor Windows Agent Extension Operations: Disable/Enable/Uninstall/Install)"
+date = '2025-05-11T07:49:22+08:00'
+title = "Azure Monitor Windows Agent Extension Operations: Handling ValidateDataStorePersistence Errors"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
     "Azure"
@@ -11,131 +11,56 @@ tags = [
     "Azure Monitor",
 ]
 image = "azure-monitor.png"
-draft = true
+# draft = true
 +++
+# Introduction  
+In this post, we’ll tackle a common issue affecting the Azure Monitor Agent (AMA) on Windows - ValidateDataStorePersistence failures. Starting with AMA version 1.30.0.0, a security check was added ([CVE-2024-38097](https://nvd.nist.gov/vuln/detail/CVE-2024-38097)) to ensure the integrity of the agent’s data store. While this improves security, it can lead to heartbeats stopping and Agent processes failing to start if the persistence key or registry entry goes missing or is out of sync. I’ll walk you through how to diagnose the problem and get your AMA back online quickly.
+
+# Symptoms  
+When the AMA extension enters a transition state or fails to launch, you may observe:  
+- Heartbeats from the agent stop in Azure Monitor  
+- [MonAgent* processes]({{< ref "/post/azure/ama-win-processes" >}}) do not appear in Task Manager  
+- The VM extension status remains “transitioning” indefinitely  
+- ExtensionHealth.*.log (on the VM or Azure Arc machine) contains one or more of these errors: 
+  ``` text
+  The key file exists but the registry value does not. Cannot launch AMA. 
+  The registry value exists but the key file does not. Cannot launch AMA.
+  The key in the file does not match the expected key. Cannot launch AMA. 
+  ```
+  Log locations for ExtensionHealth.*.log:  
+  - Azure VM: 
+    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\{version}\ExtensionHealth.*.log  
+  - Azure Arc: 
+    C:\ProgramData\GuestConfig\extension_logs\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\ExtensionHealth.*.log  
 
 
-When you need to perform operations on the Azure Monitor Windows Agent Extension (AMA)—disable, enable, uninstall or install—and you require the full privileges of the SYSTEM account, Task Scheduler is a handy tool. You don’t have to build a full automation pipeline; you can simply register a scheduled task that runs the AMA extension executable with the right arguments under SYSTEM, then trigger it on demand.
+# Root Cause  
+The extension’s persistence check ensures that the agent’s local data store hasn’t been tampered with via symbolic links, junctions, deletions or other redirections. If the `.persistencekey` file and the corresponding registry entry go out of sync—or if an attacker attempts to redirect SYSTEM calls—AMA refuses to start as a security precaution.
 
-Below is a step-by-step example showing how to:
+# Step-by-Step Resolution  
+1. Validate the integrity of your data store directory (no unexpected symbolic links, junctions or file deletions).  
 
-  • Detect the current AMA version  
-  • Create a one-off scheduled task definition (XML)  
-  • Register it under the SYSTEM account  
-  • Manually start and later remove the task  
+2. Disable the Azure Monitor Agent locally  
+   • Follow the [AMA Disable Guide]({{< ref "/post/azure/ama-win-restart" >}}) to diasble the AMA locally.  
 
-## 1. Read the Installed AMA Version
+3. Remove the Stale Persistence Key  
+   a. Delete the registry key if exist:  
+      Path: HKLM\SOFTWARE\Microsoft\AzureMonitorAgent\Secrets  
+      Name: PersistenceKeyCreated  
 
-AMA’s handler state is stored in the registry. Use PowerShell to extract the version string:
+   b. Delete the `.persistencekey` file from the data store directory if exist:  
+      - Azure VM:  
+        C:\WindowsAzure\Resources\{dataStoreName}\.persistencekey  
+      - Azure Arc:  
+        C:\Resources\Directory\{dataStoreName}\.persistencekey  
 
-```powershell
-$currentVersion = (
-  Get-ChildItem `
-    -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure\HandlerState\" |
-  Where-Object Name -like "*AzureMonitorWindowsAgent*" |
-  Get-ItemProperty |
-  Where-Object InstallState -eq "Enabled"
-).PSChildName -split '_' | Select-Object -Last 1
+4. Re-enable the Azure Monitor Agent locally  
+   • Follow the [AMA Enable Guide]({{< ref "/post/azure/ama-win-restart" >}}) to re-enable the AMA locally.
+   • The extension’s health check will recreate the `.persistencekey` file and the registry entry automatically.  
 
-Write-Host "Detected AMA version: $currentVersion"
-```
+5. Verify the Fix  
+   • Monitor the ExtensionHealth.*.log for any new ValidateDataStorePersistence errors.  
+   • Check that the MonAgent* processes are running and heartbeats resume in Log Analytics Workspace.  
 
-## 2. Prepare a Task XML Template
-
-Below is a minimal XML template for Task Scheduler. Notice the `<UserId>` is `S-1-5-18` (the SYSTEM account). Replace `arg1` with the desired operation: `disable`, `enable`, `uninstall`, or `install`.
-
-```xml
-<?xml version="1.0" encoding="UTF-16"?>
-<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
-  <RegistrationInfo>
-    <Author>SYSTEM</Author>
-    <URI>\AMA Operation</URI>
-  </RegistrationInfo>
-  <Principals>
-    <Principal id="Author">
-      <UserId>S-1-5-18</UserId>          <!-- SYSTEM account -->
-      <RunLevel>LeastPrivilege</RunLevel>
-    </Principal>
-  </Principals>
-  <Triggers>
-    <TimeTrigger>
-      <StartBoundary>2025-01-01T00:00:00</StartBoundary>
-      <Enabled>true</Enabled>
-    </TimeTrigger>
-  </Triggers>
-  <Settings>
-    <AllowStartOnDemand>true</AllowStartOnDemand>
-    <Enabled>true</Enabled>
-    <ExecutionTimeLimit>PT1H</ExecutionTimeLimit>
-  </Settings>
-  <Actions Context="Author">
-    <Exec>
-      <Command>
-        C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\$currentVersion\AzureMonitorAgentExtension.exe
-      </Command>
-      <Arguments>arg1</Arguments>
-      <WorkingDirectory>
-        C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\$currentVersion\
-      </WorkingDirectory>
-    </Exec>
-  </Actions>
-</Task>
-```
-
-Save this as, for example, `AmaOperation.xml`.
-
-## 3. Register the Task for a Specific Operation
-
-In PowerShell, load the XML, replace `arg1`, and register the task:
-
-```powershell
-# Choose an operation: disable, enable, uninstall, install
-$operation = "disable"
-$taskName  = "AMA $currentVersion - $operation"
-
-# Load and customize the XML
-[xml]$xmlDoc = Get-Content .\AmaOperation.xml
-$xmlString = $xmlDoc.OuterXml.Replace("arg1", $operation)
-
-# Register under SYSTEM
-Register-ScheduledTask `
-  -TaskName $taskName `
-  -Xml $xmlString `
-  -ErrorAction Stop
-
-Write-Host "Registered task '$taskName' as SYSTEM"
-```
-
-## 4. Run the Task on Demand
-
-Once registered, you can trigger it immediately:
-
-```powershell
-Start-ScheduledTask -TaskName "AMA $currentVersion - disable"
-```
-
-Check the Task Scheduler GUI or use `Get-ScheduledTask` to monitor history and status.
-
-## 5. Clean Up
-
-When you no longer need the task, unregister it:
-
-```powershell
-Unregister-ScheduledTask `
-  -TaskName "AMA $currentVersion - disable" `
-  -Confirm:$false
-
-Write-Host "Removed task"
-```
-
-Repeat registration, start, and cleanup for other operations (`enable`, `uninstall`, `install`) as needed.
-
----
-
-By registering ad-hoc scheduled tasks under the SYSTEM account, you get:
-
-  • Full privilege execution without interactive prompts  
-  • A clear, audit-able history in Task Scheduler  
-  • Simple on-demand invocation via PowerShell or the GUI  
-
-Feel free to adapt the XML (add more triggers, logging, retry settings, etc.) or wrap these steps in scripts to suit your maintenance workflow.
+# Conclusion
+By performing a quick disable - delete - enable cycle on the Azure Monitor Windows Agent extension, you restore the data store persistence alignment and eliminate the ValidateDataStorePersistence errors. This not only gets your agent back online but also maintains the security safeguard introduced in AMA 1.30.0.0. As always, keep your agents up to date and monitor your extension logs for early detection of any anomalies. 

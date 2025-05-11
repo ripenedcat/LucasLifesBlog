@@ -1,6 +1,6 @@
 +++
 author = "Lucas Huang"
-date = '2025-05-11T07:49:22+08:00'
+date = '2025-05-11T07:48:22+08:00'
 title = "Azure Monitor Windows Agent Extension Operations: Handling ValidateDataStorePersistence Errors"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [

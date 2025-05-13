@@ -109,7 +109,7 @@ for ($i = 0; $i -lt $loopCount; $i++) {
 2. **Event Hub Instance**  ($eventHubName)  
    ![Event Hub Instance Name](Event-Hub-Instance-name.png)
 
-3. **Managed Identity Client ID**  
+3. **Managed Identity Client ID** ($clientId)
    This is the Microsoft Entra Client ID of your VM's managed identity.
    - **System-assigned**:  
      ![System Identity](System-Identity-Example.png)
@@ -136,10 +136,12 @@ pwsh send_events.ps1
 `Error: Response status code does not indicate success: 401 (SubCode=40100: Unauthorized : Unauthorized access for 'Send' operation on endpoint 'sb://<eventhubname>.servicebus.windows.net/<eventhubinstancename>/messages'. Tracking Id: f13db8ec-xxxx-xxxx-xxxx-af87a56d48b7_G2)`
 
 **Cause**:
+
 The assigned System/User Identity does not have permission to access the Event Hub.
 
 **Solution**:  
-- Assign **Azure Event Hubs Data Sender** role to VM identity
+
+Assign **Azure Event Hubs Data Sender** role to the System/User identity
 
 ## Network Blocking
 **Error**:  
@@ -159,8 +161,10 @@ TrackingId:4f9e0fff-31c3-4c39-a735-1280ca63a0cc_G20, SystemTracker:log-playgroun
 ```
 
 **Cause**:
+
 Event Hub has no private endpoint set up and has Public network access disabled
 ![Event Hub Has Public Netork Disabled](Event-Hub-Has-Public-Netork-Disabled.png)
 
 **Solution**:  
+
 Properly set a Private Endpoint, or enable Public Network.

@@ -11,7 +11,7 @@ tags = [
     "Hugo"
 ]
 # image = "the-creative-exchange-d2zvqp3fpro-unsplash.jpg"
-# draft = true
+draft = true
 +++
 
 ## Background

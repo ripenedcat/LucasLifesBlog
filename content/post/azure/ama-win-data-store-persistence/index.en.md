@@ -10,7 +10,7 @@ tags = [
     "Azure Monitor Windows Agent",
     "Azure Monitor",
 ]
-image = "azure-monitor.png"
+image = "cover.png"
 # draft = true
 +++
 ## Introduction  

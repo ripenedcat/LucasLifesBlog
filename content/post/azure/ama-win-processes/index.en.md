@@ -10,7 +10,7 @@ tags = [
     "Azure Monitor Windows Agent",
     "Azure Monitor",
 ]
-image = "azure-monitor.png"
+image = "cover.png"
 # draft = true
 +++
 Azure Monitor s Windows Agent (AMA) is your gateway to collecting metrics, logs, and diagnostics data from Windows VMs, Scale Sets, or even on-premises servers. If you’ve ever wondered what’s happening under the covers, in this article we’ll:

@@ -14,12 +14,12 @@ image = "claw-cloud-free-register.png"
 # draft = true
 +++
 
-# 背景
+## 背景
 首先介绍一下ClawCloud，这是阿里在新加坡推出的云服务 Claw Cloud旗下的 Claw Cloud Run 近日正式上线，这是一款类似于 Vercel 和 Netlify 的在线开发平台，专为开发者和个人用户设计。通过 Claw Cloud Run，用户可以快速部署各种流行的应用程序和开源项目，如 Alist、Dify、frp 等，无需复杂的配置或高昂的成本。目前，**平台提供永久免费的 5 刀/月额度**，只需绑定一个注册超过 180 天的 GitHub 账号即可享受。
 
 
 
-# 免费容器获取
+## 免费容器获取
 1. 注册链接如下：[https://console.run.claw.cloud/signin](https://console.run.claw.cloud/signin?link=M9LO08K7ZTR3)
 
    ![免费注册爪云](claw-cloud-free-register.png)

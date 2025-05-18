@@ -15,16 +15,16 @@ tags = [
 
 In many customer scenarios, there's a mounting need to automate the process of enabling Azure Benefits across multiple Azure Arc Servers – especially since there isn't a native Azure Policy or CLI command to handle this. In this article, I'll share a PowerShell solution that tackles this challenge seamlessly.
 
-# Scenario   
+## Scenario   
 Imagine managing a large environment where numerous Azure Arc Servers are deployed, but not all have Azure Benefits enabled. Below is a snapshot of the Azure Portal showing where you can view the Azure Benefits feature:
 
 ![Azure Benefits on Azure Arc Portal](image-cfc1572a-ea87-438b-9755-fcf89eb5f622.png)
 
-# How it works
+## How it works
 The core of the approach is to leverage a PUT event that updates the property `softwareAssuranceCustomer` to `true` in the Arc Server’s properties. Once this flag is set, Azure Benefits become active. Based on this understanding, the script below iterates through all Azure Arc Servers in a specified subscription, checks the current state of the `softwareAssuranceCustomer` property, and updates it if necessary.
 ![Azure Benefits Feature in Azure Arc json Property.png](Azure-Benefits-Feature-in-Azure-Arc-json-Property.png)
 
-# Step-by-Step Script Explanation  
+## Step-by-Step Script Explanation  
 1. The script starts by setting up your subscription context and connecting to Azure using a system managed identity.  
 2. It then retrieves a Bearer token, needed to construct the proper HTTP header for subsequent API calls.  
 3. Next, it fetches all resources of type Microsoft.HybridCompute/machines (which represent Azure Arc Servers).  
@@ -103,13 +103,13 @@ foreach($arcServer in $arcServers){
 }
 ```
 
-# Expected Output  
+## Expected Output  
 
 Once you run the script, you should see output similar to the following, where each server is checked and updated only if necessary:
 
 ![Script Output Screenshot](image-cfc1572a-ea87-438b-9755-fcf89eb5f624.png)
 
-# Conclusion  
+## Conclusion  
 
 This PowerShell script provides a practical method to automate enabling Azure Benefits on your Azure Arc Servers. Although it's not possible to toggle this setting with a simple policy or CLI command, leveraging REST API calls within PowerShell bridges that gap efficiently.
 

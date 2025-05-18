@@ -14,12 +14,12 @@ tags = [
 # draft = true
 +++
 
-# 背景
+## 背景
 虽然[这一篇微软文档](https://learn.microsoft.com/zh-cn/azure/static-web-apps/publish-hugo)中介绍了如何将 Hugo 网站部署到 Azure Static Web Apps，看起来一步一步跟着做就能成功，但实际上照着做会导致 GitHub Actions 构建失败，报错提示。
 
 ![Github Action failed](github-action-failed.png)
 
-# 解决方法
+## 解决方法
 究其原因，是工作流中缺少了 `app_build_command` 设置，所以构建失败.我们只需要加入 `app_build_command: "hugo --gc --minify"` 这一行就可以使其构建成功. 以下是一个完整的工作流：
 ```yml
 name: Azure Static Web Apps CI/CD

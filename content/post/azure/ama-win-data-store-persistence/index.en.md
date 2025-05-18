@@ -13,10 +13,10 @@ tags = [
 image = "azure-monitor.png"
 # draft = true
 +++
-# Introduction  
+## Introduction  
 In this post, we’ll tackle a common issue affecting the Azure Monitor Agent (AMA) on Windows - **ValidateDataStorePersistence** failures. Starting with AMA version 1.30.0.0, a security check was added ([CVE-2024-38097](https://nvd.nist.gov/vuln/detail/CVE-2024-38097)) to ensure the integrity of the agent’s data store. While this improves security, it can lead to heartbeats stopping and Agent processes failing to start if the persistence key or registry entry goes missing or is out of sync. I’ll walk you through how to diagnose the problem and get your AMA back online quickly.
 
-# Symptoms  
+## Symptoms  
 When the AMA extension enters a transition state or fails to launch, you may observe:  
 - Heartbeats from the agent stop in Azure Monitor  
 - [MonAgent* processes]({{< ref "/post/azure/ama-win-processes" >}}) do not appear in Task Manager  
@@ -34,10 +34,10 @@ When the AMA extension enters a transition state or fails to launch, you may obs
     `C:\ProgramData\GuestConfig\extension_logs\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\ExtensionHealth.*.log`  
 
 
-# Root Cause  
+## Root Cause  
 The extension’s persistence check ensures that the agent’s local data store hasn’t been tampered with via symbolic links, junctions, deletions or other redirections. If the `.persistencekey` file and the corresponding registry entry go out of sync - or if an attacker attempts to redirect SYSTEM calls - AMA refuses to start as a security precaution.
 
-# Step-by-Step Resolution  
+## Step-by-Step Resolution  
 1. Validate the integrity of your data store directory (no unexpected symbolic links, junctions or file deletions).  
 
 2. Disable the Azure Monitor Agent locally  
@@ -62,5 +62,5 @@ The extension’s persistence check ensures that the agent’s local data store 
    - Monitor the ExtensionHealth.*.log for any new ValidateDataStorePersistence errors.  
    - Check that the [MonAgent* processes]({{< ref "/post/azure/ama-win-processes" >}}) are running and heartbeats resume in Log Analytics Workspace.  
 
-# Conclusion
+## Conclusion
 By performing a quick disable - delete - enable cycle on the Azure Monitor Windows Agent extension, you restore the data store persistence alignment and eliminate the ValidateDataStorePersistence errors. This not only gets your agent back online but also maintains the security safeguard introduced in AMA 1.30.0.0. As always, keep your agents up to date and monitor your extension logs for early detection of any anomalies. 

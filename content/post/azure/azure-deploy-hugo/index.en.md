@@ -14,12 +14,12 @@ tags = [
 # draft = true
 +++
 
-# Background
+## Background
 Although [Microsoft’s documentation](https://learn.microsoft.com/en-us/azure/static-web-apps/publish-hugo) on deploying Hugo sites to Azure Static Web Apps looks straightforward, following it as-is will cause your GitHub Actions build to fail with errors. 
 
 ![Github Action failed](github-action-failed.png)
 
-# Resolution
+## Resolution
 The cause is that Azure don't have `app_build_command` added in the workflow, which makes the build fail. We will need to add `app_build_command: "hugo --gc --minify"` to the workflow and everything will be fine. Here is the complete workflow content.
 ```yml
 name: Azure Static Web Apps CI/CD

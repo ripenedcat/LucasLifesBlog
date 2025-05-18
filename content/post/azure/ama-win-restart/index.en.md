@@ -24,7 +24,7 @@ Below is a step-by-step example showing how to:
   • Register it under the SYSTEM account  
   • Manually start and later remove the task  
 
-# 1. Read the Installed AMA Version
+## Read the Installed AMA Version
 
 AMA’s handler state is stored in the registry. Use PowerShell to extract the version string:
 
@@ -40,7 +40,7 @@ $currentVersion = (
 Write-Host "Detected AMA version: $currentVersion"
 ```
 
-# 2. Prepare a Task XML Template
+## Prepare a Task XML Template
 
 Below is a minimal XML template for Task Scheduler. Notice the `<UserId>` is `S-1-5-18` (the SYSTEM account). 
 
@@ -84,7 +84,7 @@ Below is a minimal XML template for Task Scheduler. Notice the `<UserId>` is `S-
 
 Save this as, for example, `AmaOperation.xml`.
 
-# 3. Register the Task for a Specific Operation
+## Register the Task for a Specific Operation
 
 In PowerShell, load the XML, Replace arg1 with the desired operation: disable, enable, uninstall, or install.
 
@@ -106,7 +106,7 @@ Register-ScheduledTask `
 Write-Host "Registered task '$taskName' as SYSTEM"
 ```
 
-# 4. Run the Task on Demand
+## Run the Task on Demand
 
 Once registered, you can trigger it immediately:
 
@@ -118,7 +118,7 @@ Check the Task Scheduler GUI or use `Get-ScheduledTask` to monitor history and s
 
 ![Task Scheduler GUI for Triggering tasks](Task-Scheduler-to-Restart-AMA.png)
 
-# 5. Clean Up
+## Clean Up
 
 When you no longer need the task, unregister it:
 

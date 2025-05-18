@@ -1,6 +1,6 @@
 +++
 author = "Lucas Huang"
-date = '2025-05-18T015:48:22+08:00'
+date = '2025-05-18T15:48:22+08:00'
 title = "How Azure Update Manager (AUM) Plays with the Windows Update Client’s NoAutoUpdate Setting"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [

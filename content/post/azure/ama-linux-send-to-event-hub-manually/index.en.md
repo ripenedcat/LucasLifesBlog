@@ -14,7 +14,7 @@ tags = [
 # image = "azure-monitor.png"
 # draft = true
 +++
-# Overview
+## Overview
 
 This guide simplifies troubleshooting Azure Monitor Agent's (AMA) preview feature for sending data to Event Hubs. When AMA collects VM data and sends it directly to Event Hubs, you might need to confirm:
 
@@ -24,7 +24,7 @@ This guide simplifies troubleshooting Azure Monitor Agent's (AMA) preview featur
 
 **Reference**: [Microsoft Learn Documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-send-data-to-event-hubs-and-storage?tabs=windows%2Cwindows-1)
 
-# Prerequisites
+## Prerequisites
 
 - **Azure Linux VM** with managed identity (system/user-assigned)
 - **Event Hub** resource (Standard tier recommended)
@@ -32,15 +32,15 @@ This guide simplifies troubleshooting Azure Monitor Agent's (AMA) preview featur
   > 💡 Basic tier works but lacks advanced networking controls
   ![Event Hub Networking Settings](Event-Hub-Networking-Settings.png)
 
-# Step-by-Step Validation
+## Step-by-Step Validation
 
-## Install PowerShell Core
+### Install PowerShell Core
 ```bash
 sudo snap install powershell --classic
 ```
 ![PowerShell Installation](PowerShell-Installation.png)
 
-## Create Test Script
+### Create Test Script
 ```bash
 mkdir -p /tmp/test && cd /tmp/test
 touch send_events.ps1
@@ -100,9 +100,9 @@ for ($i = 0; $i -lt $loopCount; $i++) {
 }
 ```
 
-## Configure Script Parameters
+### Configure Script Parameters
 
-### Finding Required Values:
+#### Finding Required Values:
 1. **Event Hub Namespace** ($eventHubNamespaceName) 
    ![Event Hub Namespace Example](Event-Hub-Namespace-Example.png)
 
@@ -120,7 +120,7 @@ for ($i = 0; $i -lt $loopCount; $i++) {
 
 
 
-## Execute & Verify
+### Execute & Verify
 ```bash
 pwsh send_events.ps1
 ```
@@ -129,9 +129,9 @@ pwsh send_events.ps1
 **Verify in Azure Portal**:  
 ![Event Hub Messages Received](Event-Hub-Messages-Received.png)
 
-# Common Failure Scenarios
+## Common Failure Scenarios
 
-## 401 Unauthorized (RBAC Issue)
+### 401 Unauthorized (RBAC Issue)
 **Error**:  
 `Error: Response status code does not indicate success: 401 (SubCode=40100: Unauthorized : Unauthorized access for 'Send' operation on endpoint 'sb://<eventhubname>.servicebus.windows.net/<eventhubinstancename>/messages'. Tracking Id: f13db8ec-xxxx-xxxx-xxxx-af87a56d48b7_G2)`
 
@@ -143,7 +143,7 @@ The assigned System/User Identity does not have permission to access the Event H
 
 Assign **Azure Event Hubs Data Sender** role to the System/User identity
 
-## Network Blocking
+### Network Blocking
 **Error**:  
 ```xml
 <Error>

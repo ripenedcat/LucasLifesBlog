@@ -14,11 +14,11 @@ image = "claw-cloud-free-register.png"
 # draft = true
 +++
 
-# Background
+## Background
 
 First, let me introduce ClawCloud, a cloud service launched by Alibaba in Singapore. ClawCloud's *Claw Cloud Run* has recently gone live. This is an online development platform similar to Vercel and Netlify, designed for developers and individual users. With Claw Cloud Run, users can quickly deploy all kinds of popular applications and open-source projects, such as Alist, Dify, frp, and more, all without complicated configurations or high costs. Currently, **the platform offers a permanently free $5 per month credit**—all you need is a GitHub account that has been registered for over 180 days.
 
-# How to Get a Free Container
+## How to Get a Free Container
 
 1. Register with this link: [https://console.run.claw.cloud/signin](https://console.run.claw.cloud/signin?link=M9LO08K7ZTR3)
 

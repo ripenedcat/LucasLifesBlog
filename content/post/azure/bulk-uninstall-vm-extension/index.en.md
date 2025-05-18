@@ -13,7 +13,7 @@ tags = [
 # draft = true
 +++
 
-# Background 
+## Background 
 Managing hundreds of Azure Virtual Machines (VMs) can become tedious when you need to install or uninstall VM extensions—especially if you’re decommissioning agents like Microsoft Monitoring Agent (MMA) or OMS Agent. Manually drilling into each VM in the Azure portal is time‑consuming and error‑prone. This blog post walks you through a reusable PowerShell script that:
 
 - Targets all VMs in a specific Azure subscription
@@ -21,7 +21,7 @@ Managing hundreds of Azure Virtual Machines (VMs) can become tedious when you ne
 - Uninstalls one or more specified extensions in one shot
 - Provides clear logging and error handling
 
-# Prerequisites
+## Prerequisites
 - **Azure PowerShell Az Module** installed (Az.Accounts, Az.Compute).  
 - Permissions to read VMs and remove extensions in your target subscription.  
 - You’ve authenticated to Azure via `Connect-AzAccount`.
@@ -48,7 +48,7 @@ Managing hundreds of Azure Virtual Machines (VMs) can become tedious when you ne
 7. **Logging & Error Handling**  
    Color‐coded output lets you quickly scan successes, failures, and skips.
 
-# The Script
+## The Script
 
 Below is the complete PowerShell script for reference:
 ```powershell
@@ -163,7 +163,7 @@ foreach ($vm in $vmList) {
 Write-Host "Bulk uninstallation complete." -ForegroundColor Cyan
 ```
 
-# Expected Output  
+## Expected Output  
 
 Once you run the script, you should see output similar to the following, where each server is checked and updated only if necessary:
 

@@ -203,6 +203,7 @@ params:
             enabled: false
 
 # 显示文章的最后修改时间
+enableGitInfo: true
 frontmatter:
   lastmod:
     - :git

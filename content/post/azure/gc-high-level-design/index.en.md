@@ -10,7 +10,7 @@ tags = [
     "Machine Configuration",
     "Guest Configuration"
 ]
-image = "cover.jpg"
+image = "cover.png"
 # draft = true
 +++
 

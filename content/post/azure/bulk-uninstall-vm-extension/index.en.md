@@ -26,7 +26,7 @@ Managing hundreds of Azure Virtual Machines (VMs) can become tedious when you ne
 - Permissions to read VMs and remove extensions in your target subscription.  
 - You’ve authenticated to Azure via `Connect-AzAccount`.
 
-# How it works
+## How it works
 1. **Connect-AzAccount**  
    Authenticate you with Azure AD.
 

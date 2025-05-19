@@ -207,7 +207,7 @@ enableGitInfo: true
 frontmatter:
   lastmod:
     - :git
-    - :fileModTime
+    # - :fileModTime
 
 
 

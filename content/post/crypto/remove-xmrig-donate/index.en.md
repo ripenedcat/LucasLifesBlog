@@ -76,4 +76,4 @@ After downloading, it’s recommended to extract the source code and the depende
 
 ---
 
-You’ve now successfully compiled XMRig from source with the donation completely removed. Enjoy your mining!
+You’ve now successfully compiled XMRig from source with the donation completely removed. Enjoy your mining!!

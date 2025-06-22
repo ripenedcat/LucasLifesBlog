@@ -4,12 +4,12 @@ date = '2025-05-21T10:49:22+08:00'
 title = "自编译源代码去除XMRig抽水"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "虚拟货币"
+    "虚拟货币",
+    "挖矿"
 ]
 tags = [
     "门罗币",
-    "XMrig",
-    "挖矿"
+    "XMrig"    
 ]
 image = "cover.png"
 # draft = true

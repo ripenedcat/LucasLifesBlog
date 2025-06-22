@@ -4,10 +4,11 @@ date = '2025-04-19T20:49:22+08:00'
 title = "Batch Enable Azure Benefits on Azure Arc Servers"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Azure"
+    "Azure",
+    "Azure Arc"
 ]
 tags = [
-    "Azure Arc"
+    "Azure Benefits"
 ]
 # image = "the-creative-exchange-d2zvqp3fpro-unsplash.jpg"
 # draft = true

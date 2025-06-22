@@ -4,10 +4,11 @@ date = '2025-04-25T09:49:22+08:00'
 title = "Automating Bulk Uninstallation of Any Azure VM Extensions"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Azure"
+    "Azure",
+    "Azure VM"
 ]
 tags = [
-    "Azure VM"
+    "Azure VM Extensions"
 ]
 # image = "the-creative-exchange-d2zvqp3fpro-unsplash.jpg"
 # draft = true

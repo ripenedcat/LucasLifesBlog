@@ -4,10 +4,10 @@ date = '2025-06-22T14:52:22+08:00'
 title = "Hugo Stack Theme Customization"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Hugo博客"
+    "Hugo Blog"
 ]
 tags = [
-    "Stack主题"
+    "Stack Theme"
 ]
 image = "cover.png"
 draft = false

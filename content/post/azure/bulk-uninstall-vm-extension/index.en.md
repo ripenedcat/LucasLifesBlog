@@ -10,7 +10,7 @@ categories = [
 tags = [
     "Azure VM Extensions"
 ]
-image = "cover.jpg"
+image = "cover.png"
 # draft = true
 +++
 ## Background 

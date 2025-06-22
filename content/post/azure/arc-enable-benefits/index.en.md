@@ -10,7 +10,7 @@ categories = [
 tags = [
     "Azure Benefits"
 ]
-image = "cover.jpg"
+image = "cover.png"
 # draft = true
 +++
 In many customer scenarios, there's a mounting need to automate the process of enabling Azure Benefits across multiple Azure Arc Servers – especially since there isn't a native Azure Policy or CLI command to handle this. In this article, I'll share a PowerShell solution that tackles this challenge seamlessly.

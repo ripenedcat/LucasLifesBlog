@@ -3,10 +3,9 @@ author = "Lucas Huang"
 date = '2025-04-17T13:52:22+08:00'
 title = "The Pitfalls of Hugo Multilingual Articles"
 categories = [
-    "Personal Blog"
+    "Hugo Blog"
 ]
 tags = [
-    "Hugo",
     "Multilingual"
 ]
 draft = false

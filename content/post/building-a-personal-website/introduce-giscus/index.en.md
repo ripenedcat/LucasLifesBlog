@@ -3,12 +3,10 @@ author = "Lucas Huang"
 date = '2025-06-22T09:52:22+08:00'
 title = "Introduce Giscus to your Hugo Website"
 categories = [
-    "Personal Blog",
-    "Comment System",
-    "Giscus"
+    "Hugo Blog"
 ]
 tags = [
-    "Hugo",
+    "Giscus",
     "Stack Theme"
 ]
 image = "cover.png"

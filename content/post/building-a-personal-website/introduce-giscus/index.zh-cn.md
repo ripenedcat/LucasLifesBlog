@@ -4,12 +4,10 @@ date = '2025-06-22T09:52:22+08:00'
 title = "Hugo 博客引入 Giscus 评论系统"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "个人博客",
-    "评论系统",
-    "Giscus"
+    "Hugo博客"
 ]
 tags = [
-    "Hugo",
+    "Giscus",
     "Stack主题"
 ]
 image = "cover.png"

@@ -1,7 +1,7 @@
 ---
-title: "Personal Blog"
+title: "Hugo Blog"
 description: "Experience to build up a personal blog!"
-slug: "Personal Blog"
+slug: "Hugo Blog"
 image: "hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg"
 style:
     background: "#2a9d8f"

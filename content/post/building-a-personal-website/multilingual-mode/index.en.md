@@ -4,7 +4,7 @@ date = '2025-04-16T13:52:22+08:00'
 title = "Multi-Language in Hugo"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Personal Blog"
+    "Hugo Blog"
 ]
 tags = [
     "Hugo"

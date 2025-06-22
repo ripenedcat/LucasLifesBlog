@@ -4,10 +4,9 @@ date = '2025-04-20T16:52:22+08:00'
 title = "Fixing the Issue of Missing TOC in Hugo Posts"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Personal Blog"
+    "Hugo Blog"
 ]
 tags = [
-    "Hugo",
     "Stack Theme"
 ]
 draft = false

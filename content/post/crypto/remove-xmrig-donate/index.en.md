@@ -4,10 +4,10 @@ date = '2025-05-21T10:49:22+08:00'
 title = "Compiling XMRig from Source to Remove Developer Donation"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Crypto",
-    "Crypto Mining"
+    "Crypto"
 ]
 tags = [
+    "Crypto Mining",
     "Menoro",
     "XMrig"
     

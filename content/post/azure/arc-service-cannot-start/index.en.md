@@ -4,10 +4,10 @@ date = '2025-05-07T15:49:22+08:00'
 title = "Troubleshooting Installation fails with Cannot start service ExtensionService/Guest Configuration Service"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Azure",
-    "Azure Arc"
+    "Azure"
 ]
 tags = [
+    "Azure Arc",
     "Arc Service Errors"
 ]
 image = "arc-installation-failed.png"

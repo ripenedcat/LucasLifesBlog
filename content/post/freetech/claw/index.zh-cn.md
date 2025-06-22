@@ -1,10 +1,10 @@
 +++
 author = "Lucas Huang"
 date = '2025-05-06T13:52:22+08:00'
-title = "永久免费的容器！4核 CPU、8G内存、10G网络！无需信用卡！搭建网站、部署AI (Lobe-Chat) 首选"
+title = "永久免费的容器！4核 CPU、8G内存、10G网络！无需信用卡！搭建网站、部署AI首选"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "免费资源"
+    "Free Resources"
 ]
 tags = [
     "爪云",

@@ -4,7 +4,9 @@ date = '2025-05-19T07:52:22+08:00'
 title = "A Comprehensive Look at the Azure Guest Configuration Agent: High-Level Design and Execution Flow"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Azure",
+    "Azure"
+]
+tags = [
     "Machine Configuration",
     "Guest Configuration"
 ]

@@ -4,7 +4,7 @@ date = '2025-04-20T16:52:22+08:00'
 title = "解决Hugo文章目录TOC不显示"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Hugo博客"
+    "Hugo Blog"
 ]
 tags = [
     "Stack主题"

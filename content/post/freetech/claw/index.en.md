@@ -1,7 +1,7 @@
 +++
 author = "Lucas Huang"
 date = '2025-05-06T13:52:22+08:00'
-title = "Permanently Free Containers! No Credit Card Needed! Best Choice for Website Hosting and AI Deployment (Lobe-Chat)"
+title = "Permanently Free Containers! No Credit Card Needed! Best Choice for Website Hosting and AI Deployment"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
     "Free Resources"

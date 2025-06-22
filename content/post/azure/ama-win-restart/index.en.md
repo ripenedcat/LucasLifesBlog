@@ -4,12 +4,12 @@ date = '2025-05-10T15:49:22+08:00'
 title = "Azure Monitor Windows Agent Extension Operations: Disable/Enable/Uninstall/Install)"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Azure",
-    "Azure Monitor Agent"
+    "Azure"
 ]
 tags = [
     "Azure Monitor Windows Agent",
-    "Azure Monitor",
+    "Azure Monitor Agent",
+    "Azure Monitor"
 ]
 image = "azure-monitor.png"
 # draft = true

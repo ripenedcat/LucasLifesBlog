@@ -4,10 +4,10 @@ date = '2025-05-16T07:48:22+08:00'
 title = "Testing Connectivity to Azure Instance Metadata Service (IMDS)"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Azure",
-    "Azure Monitor Agent"
+    "Azure"
 ]
 tags = [
+    "Azure Monitor Agent",
     "Network Connectivity"
 ]
 image = "cover.png"

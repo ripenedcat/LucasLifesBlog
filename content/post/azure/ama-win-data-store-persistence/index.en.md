@@ -4,11 +4,11 @@ date = '2025-05-11T07:48:22+08:00'
 title = "Azure Monitor Windows Agent Extension Operations: Handling ValidateDataStorePersistence Errors"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Azure",
-    "Azure Monitor Agent"
+    "Azure"
 ]
 tags = [
     "Azure Monitor Windows Agent",
+    "Azure Monitor Agent",
     "Azure Monitor",
 ]
 image = "cover.png"

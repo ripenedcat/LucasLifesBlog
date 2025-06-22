@@ -4,11 +4,11 @@ date = '2025-05-13T07:48:22+08:00'
 title = "Troubleshoot Azure Monitor Linux Agent Sending Logs to Event Hub"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Azure",
-    "Azure Monitor Agent"
+    "Azure"
 ]
 tags = [
     "Azure Monitor Linux Agent",
+    "Azure Monitor Agent",
     "Azure Monitor",
     "Event Hub"
 ]

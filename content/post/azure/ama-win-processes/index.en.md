@@ -4,11 +4,11 @@ date = '2025-05-09T15:49:22+08:00'
 title = "Understanding Azure Monitor Windows Agent Processes"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Azure",
-    "Azure Monitor Agent"
+    "Azure"
 ]
 tags = [
     "Azure Monitor Windows Agent",
+    "Azure Monitor Agent",
     "Azure Monitor",
 ]
 image = "cover.png"

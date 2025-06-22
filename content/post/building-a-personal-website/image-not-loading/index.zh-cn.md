@@ -4,7 +4,7 @@ date = '2025-04-17T13:52:22+08:00'
 title = "Hugo多语言文章的那些坑"
 # description = "This article demonstrates how to deploy a Hugo web application to Azure Static Web Apps"
 categories = [
-    "Hugo博客"
+    "Hugo Blog"
 ]
 tags = [
     "多语言模式"

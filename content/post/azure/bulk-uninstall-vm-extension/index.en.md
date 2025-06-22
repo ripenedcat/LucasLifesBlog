@@ -10,10 +10,9 @@ categories = [
 tags = [
     "Azure VM Extensions"
 ]
-# image = "the-creative-exchange-d2zvqp3fpro-unsplash.jpg"
+image = "cover.jpg"
 # draft = true
 +++
-
 ## Background 
 Managing hundreds of Azure Virtual Machines (VMs) can become tedious when you need to install or uninstall VM extensions—especially if you’re decommissioning agents like Microsoft Monitoring Agent (MMA) or OMS Agent. Manually drilling into each VM in the Azure portal is time‑consuming and error‑prone. This blog post walks you through a reusable PowerShell script that:
 

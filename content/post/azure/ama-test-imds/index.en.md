@@ -10,7 +10,7 @@ categories = [
 tags = [
     "Network Connectivity"
 ]
-# image = "azure-monitor.png"
+image = "cover.png"
 # draft = true
 +++
 The Azure Instance Metadata Service (IMDS) provides a REST endpoint for Azure Monitot Agent (AMA) to retrieve metadata and access tokens from Azure Virtual Machines (VMs) and Azure Arc-enabled servers. This is a baseline for AMA to be functioning. This guide outlines how to test connectivity to IMDS and verify its functionality.

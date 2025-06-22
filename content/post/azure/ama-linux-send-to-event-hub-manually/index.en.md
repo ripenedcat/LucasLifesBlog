@@ -12,7 +12,7 @@ tags = [
     "Azure Monitor",
     "Event Hub"
 ]
-# image = "azure-monitor.png"
+image = "cover.png"
 # draft = true
 +++
 ## Overview

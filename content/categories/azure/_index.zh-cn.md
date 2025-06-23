@@ -3,6 +3,6 @@ title: "Azure"
 description: "Technical Stuff Around Microsoft Azure!"
 image: "cover.png"
 style:
-    background: "#2a9d8f"
+    background: "#a2a5d3"
     color: "#fff"
 ---

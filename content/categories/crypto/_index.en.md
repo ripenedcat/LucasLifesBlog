@@ -3,6 +3,6 @@ title: "Crypto"
 description: "Technical Stuff Around Microsoft Azure!"
 image: "cover.png"
 style:
-    background: "#2a9d8f"
+    background: "#efb603"
     color: "#fff"
 ---

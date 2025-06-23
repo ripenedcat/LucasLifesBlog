@@ -3,6 +3,6 @@ title: "Hugo博客"
 description: "Experience to build up a personal blog!"
 image: "cover.png"
 style:
-    background: "#2a9d8f"
+    background: "#75bab7"
     color: "#fff"
 ---

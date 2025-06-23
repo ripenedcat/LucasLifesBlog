@@ -1,6 +1,6 @@
 +++
 author = "Lucas Huang"
-date = '2025-06-23T09:45:00+08:00'
+date = '2025-06-23T09:40:00+08:00'
 title = "One article to fully understand Agent, Function Calling, MCP, and A2A"
 categories = [
     "AI"

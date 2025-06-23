@@ -175,7 +175,7 @@ code {
         }
     </script>
     ```
-2. 新建`~/layouts/partials/footer/custom.html`里增加如下代码。改了一下按钮的颜色（`background-color` 和 `border-color`)，跟主题色系统一。
+2. 新建`~/layouts/partials/footer/custom.html`, 将`~/themes/hugo-theme-stack/layouts/partials/footer/custom.html`里的内容全部复制过去，并在最后增加如下代码。改了一下按钮的颜色（`background-color` 和 `border-color`)，跟主题色系统一。
     ```css
     <!-- Add back to top button -->
     <a href="#" id="back-to-top" title="返回顶部"></a>
@@ -257,6 +257,94 @@ code {
     }
     </style>
     ```
+## 接入Giscus评论系统
+详情请参考 [这里]({{< ref "/post/building-a-personal-website/introduce-giscus" >}})
+
+## 给首页的分类卡增加对应的颜色条和条目数量
+首先需要在分类卡的_index.md文件里定义每个类别的背景色，这个之后会用到。好看的配色我一般会去 [Color Hunt](http://colorhunt.co/) 找找灵感，需要微调的话可以参考 [Color Hex](http://color-hex.com/) 。
+格式如下：
+```css
+---
+# content/categories/life/_index.md
+title: 生活日常
+# Badge style
+style:
+    background: "#d09daa"
+    color: "#fff"
+---
+```
+在`~/themes/hugo-theme-stack/assets/scss/partials/article.scss`里找到`.article-category`并替换成以下代码：
+```css
+.article-category {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        a {
+            background: var(--card-background);
+            box-shadow: var(--shadow-l1);
+            border-radius: var(--category-border-radius);
+            padding: 8px 20px;
+            color: var(--card-text-color-main);
+            font-size: 1.4rem;
+            transition: box-shadow 0.3s ease;
+
+            &:hover {
+                box-shadow: var(--shadow-l2);
+            }
+        }
+    }
+
+```
+在`~/themes/hugo-theme-stack/assets/scss/partials/widgets.scss`增加如下代码：
+```css
+/* Category widget */
+.category {
+    .category-label {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        a {
+            border-left: 6px solid; // Set border for category widget
+            background: var(--card-background);
+            box-shadow: var(--shadow-l1);
+            border-radius: var(--category-border-radius);
+            padding: 8px 20px;
+            color: var(--card-text-color-main);
+            font-size: 1.4rem;
+            transition: box-shadow 0.3s ease;
+
+            &:hover {
+                box-shadow: var(--shadow-l2);
+            }
+        }
+    }
+    .category-count {
+        margin-left: 7px;
+        color: var(--body-text-color);
+    }
+}
+```
+最后在`~/themes/hugo-theme-stack/layouts/partials/widget/categories.html`将`Section`的内容替换为如下。其中我加上了{{ .Count }}来显示分类的条目数量。
+```css
+<section class="widget category">
+     <div class="widget-icon">
+         {{ partial "helper/icon" "categories" }}
+     </div>
+     <h2 class="widget-title section-title">{{ T "widget.categoriesCloud.title" }}</h2>
+
+     <div class="category-label">
+         {{ range first $limit $context.Site.Taxonomies.categories.ByCount }}
+        <a href="{{ .Page.RelPermalink }}" class="font_size_{{ .Count }}"
+            style="border-left-color: {{ .Page.Params.style.background }}; filter:saturate(1.7);">
+            {{ .Page.Title }}<span class="category-count">{{ .Count }}</span>
+        </a>
+        {{ end }}
+     </div>
+</section>
+```
+> 由于我设置的背景色都偏灰，但颜色条我想让它亮眼一些，所以这里加了个让颜色饱和度更高的`filter:saturate(1.7);`，不需要的话可以删掉。
 
 ## More
 之后还有其他装修项目的话，我会持续更新在这里！

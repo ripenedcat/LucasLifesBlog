@@ -261,6 +261,10 @@ code {
 详情请参考 [这里]({{< ref "/post/building-a-personal-website/introduce-giscus" >}})
 
 ## 给首页的分类卡增加对应的颜色条和条目数量
+效果预览：
+
+![Colored Categories Preview](Colored-Categories-Preview.png)
+
 首先需要在分类卡的_index.md文件里定义每个类别的背景色，这个之后会用到。好看的配色我一般会去 [Color Hunt](http://colorhunt.co/) 找找灵感，需要微调的话可以参考 [Color Hex](http://color-hex.com/) 。
 格式如下：
 ```css

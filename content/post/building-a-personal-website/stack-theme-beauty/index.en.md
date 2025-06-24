@@ -261,6 +261,98 @@ Effect:
     </style>
     ```
 
+## Integrate Giscus Comment System
+For more details, please refer to [here]({{< ref "/post/building-a-personal-website/introduce-giscus" >}}).
+
+## Add Colored Stripes and Item Counts to Home Page Category Cards
+Preview:
+
+![Colored Categories Preview](Colored-Categories-Preview.png)
+
+First, you need to define the background color for each category in its respective `_index.md` file. We'll use this later. For nice color palettes, I usually get inspiration from [Color Hunt](http://colorhunt.co/) and fine-tune as needed with [Color Hex](http://color-hex.com/).
+Format example:
+```css
+---
+# content/categories/life/_index.md
+title: Daily Life
+# Badge style
+style:
+    background: "#d09daa"
+    color: "#fff"
+---
+```
+In `~/themes/hugo-theme-stack/assets/scss/partials/article.scss`, find `.article-category` and replace with the following code:
+```css
+.article-category {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        a {
+            background: var(--card-background);
+            box-shadow: var(--shadow-l1);
+            border-radius: var(--category-border-radius);
+            padding: 8px 20px;
+            color: var(--card-text-color-main);
+            font-size: 1.4rem;
+            transition: box-shadow 0.3s ease;
+
+            &:hover {
+                box-shadow: var(--shadow-l2);
+            }
+        }
+    }
+
+```
+Then in `~/themes/hugo-theme-stack/assets/scss/partials/widgets.scss`, add the following code:
+```css
+/* Category widget */
+.category {
+    .category-label {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        a {
+            border-left: 6px solid; // Set border for category widget
+            background: var(--card-background);
+            box-shadow: var(--shadow-l1);
+            border-radius: var(--category-border-radius);
+            padding: 8px 20px;
+            color: var(--card-text-color-main);
+            font-size: 1.4rem;
+            transition: box-shadow 0.3s ease;
+
+            &:hover {
+                box-shadow: var(--shadow-l2);
+            }
+        }
+    }
+    .category-count {
+        margin-left: 7px;
+        color: var(--body-text-color);
+    }
+}
+```
+Finally, in `~/themes/hugo-theme-stack/layouts/partials/widget/categories.html`, replace the `Section` content with the following. I’ve added `{{ .Count }}` to show the number of items in each category.
+```css
+<section class="widget category">
+     <div class="widget-icon">
+         {{ partial "helper/icon" "categories" }}
+     </div>
+     <h2 class="widget-title section-title">{{ T "widget.categoriesCloud.title" }}</h2>
+
+     <div class="category-label">
+         {{ range first $limit $context.Site.Taxonomies.categories.ByCount }}
+        <a href="{{ .Page.RelPermalink }}" class="font_size_{{ .Count }}"
+            style="border-left-color: {{ .Page.Params.style.background }}; filter:saturate(1.7);">
+            {{ .Page.Title }}<span class="category-count">{{ .Count }}</span>
+        </a>
+        {{ end }}
+     </div>
+</section>
+```
+> Since the background colors I set are relatively grayish, but I want the stripe to be more vibrant, I added `filter:saturate(1.7);` to bump up the color saturation. You can remove it if you don’t need it.
 
 
 ## More

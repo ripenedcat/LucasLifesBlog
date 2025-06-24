@@ -57,7 +57,8 @@ This section has two parts involved, namely what AMA does and what CT&I Agent do
     - `@CAgentStream_CloudAgentInfo_ChangeTracking-Windows_default_fluent.socket` - isn't used by Linux  CT&I Agent.
 
     - `@CAgentStream_CloudAgentInfo_ChangeTracking-Linux_default_fluent.socket` - CT&I will write collected data(Software ,Services, files) to AMA via this socket.  
-    ```
+
+    ```bash
     root@LucasTestCT:/# ss -x | grep CAgentStream
 
     u_str              ESTAB               0                    0                    @CAgentStream_CloudAgentInfo_ChangeTracking-Linux_default_fluent.socket@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 34144                                    * 33175 

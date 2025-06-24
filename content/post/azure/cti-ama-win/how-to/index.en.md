@@ -80,7 +80,6 @@ cd C:\Packages\Plugins\Microsoft.Azure.ChangeTrackingAndInventory.ChangeTracking
 
 ## How To: Manually Onboard CT&I Windows Agent
 ### Scenario
----
 If you are ever in the position where you need to manually onboard the CT&I Agent for Windows, the following process will give you some guidance.
 
 

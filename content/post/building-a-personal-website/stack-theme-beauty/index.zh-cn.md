@@ -45,13 +45,16 @@ draft = false
 ## 缩小代码块的字体大小
 默认的在移动端UA下看起来实在是太大了😨，还是小一点比较好看😋
 
-新建`~/assets/scss/partials/article.scss`
-
-并将主题同目录下的同名文件内的内容全部复制粘贴进此文件夹，在文件最后加入以下内容
+在`~\themes\hugo-theme-stack\assets\scss\partials\article.scss`文件最后加入以下内容
 ```css
-code {
-    border-radius: var(--tag-border-radius);
-    font-size: 14px; // Add font size setting for code block
+/* 左列行号 */
+.chroma .lntd, .chroma .lntd pre, .chroma .ln {
+    font-size: 14px;
+    font-family: var(--code-font-family);
+}
+/* 右列代码 */
+.chroma code, .chroma pre {
+    font-size: 14px;
     font-family: var(--code-font-family);
 }
 ```

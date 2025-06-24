@@ -46,11 +46,16 @@ By default, the code block font size appears too large on mobile UAs 😨, so ma
 
 Create `~/assets/scss/partials/article.scss`.
 
-Copy all the contents of the file with the same name from the theme directory into this file, and add the following at the end:
+Add the following at the end of file `~\themes\hugo-theme-stack\assets\scss\partials\article.scss`
 ```css
-code {
-    border-radius: var(--tag-border-radius);
-    font-size: 14px; // Add font size setting for code block
+/* Left Column of Line Number */
+.chroma .lntd, .chroma .lntd pre, .chroma .ln {
+    font-size: 14px;
+    font-family: var(--code-font-family);
+}
+/* Right Column of Code */
+.chroma code, .chroma pre {
+    font-size: 14px;
     font-family: var(--code-font-family);
 }
 ```

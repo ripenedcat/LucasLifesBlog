@@ -359,3 +359,4 @@ style:
 
 - https://thirdshire.com/hugo-stack-renovation/#
 - https://blog.lufei.de/p/stack%E4%B8%BB%E9%A2%98%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89/
+- https://www.blain.top/p/renovation

@@ -93,7 +93,7 @@ body, .article-content {
     img {
       max-width: 96% !important;
       height: auto !important;
-      border-radius: 8px;
+      border-radius: 6px;
     }
   }
 
@@ -170,5 +170,19 @@ a {
 
 */
 
-//----------------------------------------------------
-//固定代码块的最大高度
+//---------------------
+// 为代码块顶部添加 macos 样式
+.article-content {
+    .highlight:before {
+      content: "";
+      display: block;
+      background: url(/img/code-header.svg);
+      height: 25px;
+      width: 100%;
+      background-size: 52px;
+      background-repeat: no-repeat;
+      margin-top: -10px;
+      margin-bottom: 0;
+    }
+  }
+

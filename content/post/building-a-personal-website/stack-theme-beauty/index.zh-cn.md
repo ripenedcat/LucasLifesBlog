@@ -567,12 +567,40 @@ style:
 }
 ```
 
+## 顶部加载进度条
+效果:
+
+![Loading Progress](Loading-Progress.png)
+
+新建`~/layouts/partials/footer/custom.html`并在最后加入以下内容：
+```css
+<!-- layouts/partials/footer/custom.html -->
+<script
+    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
+    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
+    crossorigin="anonymous"
+></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
+    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
+    crossorigin="anonymous"
+/>
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+```
+
+
 ## More
 之后还有其他装修项目的话，我会持续更新在这里！
 
 
----
-参考：
+## 参考
 
 - https://thirdshire.com/hugo-stack-renovation/#
 - https://blog.lufei.de/p/stack%E4%B8%BB%E9%A2%98%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89/

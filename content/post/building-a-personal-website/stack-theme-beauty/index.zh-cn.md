@@ -41,11 +41,54 @@ draft = false
 }
 
 ```
+## 代码块
+### 代码块自定义高度，全局滚动条
+原本的代码块默认有多少行展示多少行，含有长代码块的文章浏览器体验很差。 而且也不能简单只调整高度，否则左侧行号和右侧代码部分都会出现独立的滚动条。研究许久，下面是解决方案：
 
-## 缩小代码块的字体大小
+新建`~\assets\scss\custom.scss`，在文件最后加入以下内容
+```css
+// =============================
+// 代码块
+// =============================
+/* 自定义变量，想改高度改这里即可 */
+$codeblock-max-height: 25em;
+
+/* ① 把最外层 .highlight 作为“唯一”滚动容器 */
+.highlight {
+  max-height: $codeblock-max-height;
+  overflow: auto;                 /* 同时控制 X / Y 两个方向 */
+  -webkit-overflow-scrolling: touch; /* 移动端惯性滚动 */
+}
+
+/* ② 关闭内部 pre / code 自己的滚动（否则会出现双滚动条） */
+.highlight pre,
+.highlight code,
+.highlight .chroma {
+  overflow: visible !important;   /* 覆盖 Stack 里对 pre 的 overflow-x:auto */
+}
+
+/* ③ 让行号用的表格按内容宽度自增，保证超宽时能触发 X 滚动 */
+.lntable {
+  display: inline-table;          /* 仍然保持表格特性但可随内容变宽 */
+  min-width: max-content;
+  border-spacing: 0;
+}
+
+/* ④ 禁止自动换行，超长行通过横向滚动处理 */
+.lntd:last-child code,
+.highlight code {
+  white-space: pre;               /* 不折行 */
+}
+.lntd:first-child {
+  user-select: none; // 禁止选中行号
+}
+```
+
+
+### 缩小代码块的字体大小
 默认的在移动端UA下看起来实在是太大了😨，还是小一点比较好看😋
 
-在`~\themes\hugo-theme-stack\assets\scss\partials\article.scss`文件最后加入以下内容
+在`~\assets\scss\custom.scss`文件最后加入以下内容
 ```css
 /* 左列行号 */
 .chroma .lntd, .chroma .lntd pre, .chroma .ln {
@@ -56,6 +99,46 @@ draft = false
 .chroma code, .chroma pre {
     font-size: 14px;
     font-family: var(--code-font-family);
+}
+```
+
+### MacOS风格代码块
+在 `~/themes/hugo-theme-stack/assets/scss/partials/layout/article.scss`文件中找到 `.highlight` 部分并修改成如下：
+```css
+.highlight {
+    background-color: var(--pre-background-color);
+    padding: var(--card-padding);
+    position: relative;
+    border-radius: 10px;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-shadow: var(--shadow-l1) !important;
+
+```
+创建 `~/static/img/code-header.svg` 文件：
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"  x="0px" y="0px" width="450px" height="130px">
+    <ellipse cx="65" cy="65" rx="50" ry="52" stroke="rgb(220,60,54)" stroke-width="2" fill="rgb(237,108,96)"/>
+    <ellipse cx="225" cy="65" rx="50" ry="52"  stroke="rgb(218,151,33)" stroke-width="2" fill="rgb(247,193,81)"/>
+    <ellipse cx="385" cy="65" rx="50" ry="52"  stroke="rgb(27,161,37)" stroke-width="2" fill="rgb(100,200,86)"/>
+</svg>
+```
+
+最后在 `~/assets/scss/custom.scss` 添加代码块的样式：
+```css
+// 为代码块顶部添加 macos 样式
+.article-content {
+    .highlight:before {
+        content: "";
+        display: block;
+        background: url(/img/code-header.svg);
+        height: 25px;
+        width: 100%;
+        background-size: 52px;
+        background-repeat: no-repeat;
+        margin-top: -10px;
+        margin-bottom: 0;
+    }
 }
 ```
 

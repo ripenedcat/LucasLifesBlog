@@ -39,26 +39,110 @@ Create the file `~\assets\scss\custom.scss` and add the following content:
   }
 }
 ```
+## Code Blocks
 
-## Reduce Font Size of Code Blocks
+### Custom Height for Code Blocks with Global Scrollbar
 
-By default, the code block font size appears too large on mobile UAs 😨, so making it smaller looks better 😋.
+By default, code blocks display as many lines as there are in the code, making articles with long code blocks difficult to browse in a browser. Also, you can't simply adjust the height, otherwise the line numbers on the left and the code on the right will each have their own scrollbars. After much research, here’s the solution:
 
-Create `~/assets/scss/partials/article.scss`.
-
-Add the following at the end of file `~\themes\hugo-theme-stack\assets\scss\partials\article.scss`
+Create a new file at `~\assets\scss\custom.scss` and add the following at the end of the file:
 ```css
-/* Left Column of Line Number */
+// =============================
+// Code Blocks
+// =============================
+/* Custom variable, modify the height here as needed */
+$codeblock-max-height: 25em;
+
+/* ① Set the outermost .highlight as the “only” scrollable container */
+.highlight {
+  max-height: $codeblock-max-height;
+  overflow: auto;                 /* Controls both X and Y directions */
+  -webkit-overflow-scrolling: touch; /* Inertia scrolling on mobile */
+}
+
+/* ② Disable internal pre/code scrollbars (to avoid double scrollbars) */
+.highlight pre,
+.highlight code,
+.highlight .chroma {
+  overflow: visible !important;   /* Override Stack’s overflow-x:auto on pre */
+}
+
+/* ③ Make the line number table auto-expand with content width to enable X scroll on wide blocks */
+.lntable {
+  display: inline-table;          /* Keeps table property, allows content-dependent width */
+  min-width: max-content;
+  border-spacing: 0;
+}
+
+/* ④ Disable auto-wrapping, long lines are handled by horizontal scrolling */
+.lntd:last-child code,
+.highlight code {
+  white-space: pre;               /* No line breaks */
+}
+.lntd:first-child {
+  user-select: none; // Prevent selecting line numbers
+}
+```
+
+### Reduce Code Block Font Size
+
+The default font size looks too large on mobile UA 😨 — a smaller size looks better 😋
+
+Add the following at the end of your `~\assets\scss\custom.scss` file:
+```css
+/* Left column (line numbers) */
 .chroma .lntd, .chroma .lntd pre, .chroma .ln {
     font-size: 14px;
     font-family: var(--code-font-family);
 }
-/* Right Column of Code */
+/* Right column (code) */
 .chroma code, .chroma pre {
     font-size: 14px;
     font-family: var(--code-font-family);
 }
 ```
+
+### MacOS-style Code Blocks
+
+Find the `.highlight` section in `~/themes/hugo-theme-stack/assets/scss/partials/layout/article.scss` and modify it as follows:
+```css
+.highlight {
+    background-color: var(--pre-background-color);
+    padding: var(--card-padding);
+    position: relative;
+    border-radius: 10px;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-shadow: var(--shadow-l1) !important;
+
+```
+Create the `~/static/img/code-header.svg` file:
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"  x="0px" y="0px" width="450px" height="130px">
+    <ellipse cx="65" cy="65" rx="50" ry="52" stroke="rgb(220,60,54)" stroke-width="2" fill="rgb(237,108,96)"/>
+    <ellipse cx="225" cy="65" rx="50" ry="52"  stroke="rgb(218,151,33)" stroke-width="2" fill="rgb(247,193,81)"/>
+    <ellipse cx="385" cy="65" rx="50" ry="52"  stroke="rgb(27,161,37)" stroke-width="2" fill="rgb(100,200,86)"/>
+</svg>
+```
+
+Finally, add the following style for code blocks in `~/assets/scss/custom.scss`:
+```css
+// Add MacOS style to the top of code blocks
+.article-content {
+    .highlight:before {
+        content: "";
+        display: block;
+        background: url(/img/code-header.svg);
+        height: 25px;
+        width: 100%;
+        background-size: 52px;
+        background-repeat: no-repeat;
+        margin-top: -10px;
+        margin-bottom: 0;
+    }
+}
+```
+
 
 ## Show Icon After External Links
 

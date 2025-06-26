@@ -436,6 +436,137 @@ style:
 ```
 > 由于我设置的背景色都偏灰，但颜色条我想让它亮眼一些，所以这里加了个让颜色饱和度更高的`filter:saturate(1.7);`，不需要的话可以删掉。
 
+## 首页欢迎横幅
+效果:
+
+![Welcome Banner Preview](Welcome-Banner-Preview.png)
+
+在 `~/themes/hugo-theme-stack/layouts/index.html` 的 `<section class="article-list">` 前添加以下代码：
+```css
+<!-- 首页欢迎字幅 -->
+<div class="welcome">
+<p style="font-size: 2rem; text-align: center; font-weight: bold">
+    <span class="shake">👋</span>
+    <span class="jump-text1" > Welcome</span>
+    <span class="jump-text2"> To </span>
+    <span class="jump-text3" style="color:#e99312"> L</span><span class="jump-text4" style="color:#e99312">u</span><span class="jump-text5" style="color:#e99312">c</span><span class="jump-text6" style="color:#e99312">a</span><span class="jump-text7" style="color:#e99312">s</span><span class="jump-text8" style="color:#e99312">'s</span>
+    <span class="jump-text9" style="color:#e99312">Blog</span>
+</p>
+</div>
+<!-- 首页欢迎字幅 -->
+```
+在 `~/assets/scss/custom.scss` 中加入以下代码：
+```css
+//首页欢迎板块样式
+.welcome {
+  color: var(--card-text-color-main);
+  background: var(--card-background);
+  box-shadow: var(--shadow-l2);
+  border-radius: 30px;
+  display: inline-block;
+}
+
+// 👋emoji实现摆动效果
+.shake {
+  display: inline-block;
+  animation: shake 1s;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: shake;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+  animation-delay: 2s;
+  @keyframes shake {
+    0% {
+      transform: rotate(0);
+    }
+    25% {
+      transform: rotate(45deg) scale(1.2);
+    }
+    50% {
+      transform: rotate(0) scale(1.2);
+    }
+    75% {
+      transform: rotate(45deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+}
+// 实现字符跳动动画
+.jump-text1 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+}
+
+.jump-text2 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.1s;
+}
+
+.jump-text3 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.2s;
+}
+
+.jump-text4 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.3s;
+}
+
+.jump-text5 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.4s;
+}
+
+.jump-text6 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.5s;
+}
+
+.jump-text7 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.6s;
+}
+
+.jump-text8 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.7s;
+}
+
+.jump-text9 {
+  display: inline-block;
+  animation: jump 0.5s 1;
+  animation-delay: 0.9s;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+```
+
 ## More
 之后还有其他装修项目的话，我会持续更新在这里！
 
@@ -446,3 +577,4 @@ style:
 - https://thirdshire.com/hugo-stack-renovation/#
 - https://blog.lufei.de/p/stack%E4%B8%BB%E9%A2%98%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89/
 - https://www.blain.top/p/renovation
+- https://www.xalaok.top/post/stack-modify

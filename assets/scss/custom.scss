@@ -97,92 +97,65 @@ body, .article-content {
     }
   }
 
-// ---------------------------------------
-// 代码块基础样式修改
-/*
+
+// =============================
+// 代码块
+// =============================
+/* 自定义变量，想改高度改这里即可 */
+$codeblock-max-height: 25em;
+
+/* ① 把最外层 .highlight 作为“唯一”滚动容器 */
 .highlight {
-  max-width: 102% !important;
-  background-color: var(--pre-background-color);
-  padding: var(--card-padding);
-  position: relative;
-  border-radius: 20px;
-  margin-left: -7px !important;
-  margin-right: -12px;
-  box-shadow: var(--shadow-l1) !important;
-
-  &:hover {
-    .copyCodeButton {
-      opacity: 1;
-    }
-  }
-
-  // keep Codeblocks LTR
-  [dir="rtl"] & {
-    direction: ltr;
-  }
-
-  pre {
-    margin: initial;
-    padding: 0;
-    margin: 0;
-    width: auto;
-  }
+  max-height: $codeblock-max-height;
+  overflow: auto;                 /* 同时控制 X / Y 两个方向 */
+  -webkit-overflow-scrolling: touch; /* 移动端惯性滚动 */
 }
 
-// light模式下的代码块样式调整
-[data-scheme="light"] .article-content .highlight {
-  background-color: #fff9f3;
+/* ② 关闭内部 pre / code 自己的滚动（否则会出现双滚动条） */
+.highlight pre,
+.highlight code,
+.highlight .chroma {
+  overflow: visible !important;   /* 覆盖 Stack 里对 pre 的 overflow-x:auto */
 }
 
-[data-scheme="light"] .chroma {
-  color: #ff6f00;
-  background-color: #fff9f3cc;
+/* ③ 让行号用的表格按内容宽度自增，保证超宽时能触发 X 滚动 */
+.lntable {
+  display: inline-table;          /* 仍然保持表格特性但可随内容变宽 */
+  min-width: max-content;
+  border-spacing: 0;
 }
 
-//-------------------------------------------
-// 设置选中字体的区域背景颜色
-//修改选中颜色
-::selection {
-  color: #fff;
-  background: #34495e;
+/* ④ 禁止自动换行，超长行通过横向滚动处理 */
+.lntd:last-child code,
+.highlight code {
+  white-space: pre;               /* 不折行 */
+}
+.lntd:first-child {
+  user-select: none; // 禁止选中行号
 }
 
-a {
-  text-decoration: none;
-  color: var(--accent-color);
-
-  &:hover {
-    color: var(--accent-color-darker);
-  }
-
-  &.link {
-    color: #4288b9ad;
-    font-weight: 600;
-    padding: 0 2px;
-    text-decoration: none;
-    cursor: pointer;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+//Reduce Font Size of Code Blocks
+/* 左列行号 */
+.chroma .lntd, .chroma .lntd pre, .chroma .ln {
+    font-size: 14px;
+}
+/* 右列代码 */
+.chroma code, .chroma pre {
+    font-size: 14px;
 }
 
-*/
 
-//---------------------
 // 为代码块顶部添加 macos 样式
 .article-content {
-    .highlight:before {
-      content: "";
-      display: block;
-      background: url(/img/code-header.svg);
-      height: 25px;
-      width: 100%;
-      background-size: 52px;
-      background-repeat: no-repeat;
-      margin-top: -10px;
-      margin-bottom: 0;
-    }
+  .highlight:before {
+    content: "";
+    display: block;
+    background: url(/img/code-header.svg);
+    height: 25px;
+    width: 100%;
+    background-size: 52px;
+    background-repeat: no-repeat;
+    margin-top: -10px;
+    margin-bottom: 0;
   }
-
+}

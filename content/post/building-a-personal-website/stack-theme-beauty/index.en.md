@@ -355,6 +355,7 @@ For more details, please refer to [here]({{< ref "/post/building-a-personal-webs
 
 ## Add Colored Stripes and Item Counts to Home Page Category Cards
 Preview:
+
 ![Colored Categories Preview](Colored-Categories-Preview.png)
 
 First, you need to define the background color for each category in its respective `_index.md` file. We'll use this later. For nice color palettes, I usually get inspiration from [Color Hunt](http://colorhunt.co/) and fine-tune as needed with [Color Hex](http://color-hex.com/).

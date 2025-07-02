@@ -1,7 +1,7 @@
 +++
 author = "Lucas Huang"
 date = '2025-06-24T13:46:00+08:00'
-title = "Frequent How-To Qestions related to Linux Change Tracking and Inventory with Azure Montior Agent"
+title = "Frequent How-To Questions related to Linux Change Tracking and Inventory with Azure Monitor Agent"
 categories = [
     "Azure"
 ]

@@ -10,6 +10,7 @@ tags = [
     "Change Tracking and Inventory"
 ]
 image = "cover.png"
+series = ["Windows CT&I With AMA"]
 # draft = true
 +++
 

@@ -1,6 +1,6 @@
 +++
 author = "Lucas Huang"
-date = '2025-06-24T13:31:00+08:00'
+date = '2025-06-24T13:46:00+08:00'
 title = "Frequent How-To Qestions related to Linux Change Tracking and Inventory with Azure Montior Agent"
 categories = [
     "Azure"
@@ -10,6 +10,7 @@ tags = [
     "Change Tracking and Inventory"
 ]
 image = "cover.png"
+series = ["Linux CT&I With AMA"]
 # draft = true
 +++
 

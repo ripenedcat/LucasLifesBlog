@@ -11,6 +11,7 @@ tags = [
     "Change Tracking and Inventory"
 ]
 image = "cover.png"
+series = ["Linux CT&I With AMA"]
 # draft = true
 +++
 

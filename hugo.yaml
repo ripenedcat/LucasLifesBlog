@@ -270,3 +270,8 @@ markup:
         lineNos: true
         lineNumbersInTable: true
         tabWidth: 4
+
+taxonomies:
+  tag: "tags"
+  category: "categories"
+  series: "series"

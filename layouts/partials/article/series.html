@@ -1,0 +1,51 @@
+<!-- {{- /* 只有设置了 series 才渲染 */ -}}
+{{ with .Params.series }}
+  {{- $name := index . 0 -}}
+  {{- /* 抓到同一个系列的所有页面 */ -}}
+  {{- $pages := where site.RegularPages "Params.series" "intersect" (slice $name) -}}
+  {{- /* 按 Date 排 */ -}}
+  {{- $pages = sort $pages "Date" "asc" -}}
+
+  <div class="series-block card">
+    <p class="series-heading">
+      {{ i18n "BelongsTo" }}  
+      <strong class="series-name">{{ $name }}</strong> 
+      {{ i18n "SeriesWord" }}
+    </p>
+    <ol class="series-list">
+      {{ range $i, $p := $pages }}
+        {{- $isActive := eq $p.File.Path $.File.Path -}}
+        <li class="{{ if $isActive }}active{{ end }}">
+          <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+        </li>
+      {{ end }}
+    </ol>
+  </div>
+{{ end }} -->
+{{- $curPage := . }}  {{/* 先保存页面对象 */}}
+{{- with .Params.series }}
+  {{- $name := index . 0 -}}
+  {{- $pages := where $curPage.Site.RegularPages "Params.series" "intersect" (slice $name)  -}}
+  {{- $pages = sort $pages "Date" "asc" -}}
+  {{- $seriesPage := $curPage.Site.GetPage (printf "series/%s" $name) -}}
+
+  <div class="series-block card">
+    <p class="series-heading">
+      {{ i18n "BelongsTo" }}  
+      {{ if $seriesPage }}
+        <a href="{{ $seriesPage.RelPermalink }}" class="series-name">{{ $name }}</a>
+      {{ else }}
+        <strong class="series-name">{{ $name }}</strong>
+      {{ end }}
+      {{ i18n "SeriesWord" }}
+    </p>
+    <ol class="series-list">
+      {{ range $i, $p := $pages }}
+        {{- $isActive := eq $p.File.Path $curPage.File.Path -}}
+        <li class="{{ if $isActive }}active{{ end }}">
+          <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+        </li>
+      {{ end }}
+    </ol>
+  </div>
+{{ end }}

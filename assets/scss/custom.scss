@@ -52,24 +52,26 @@
   --card-text-color-main: #202A44;
   --card-text-color-secondary: #53565A;
   --card-text-color-tertiary: #888B8D;
+  --link-color: #8f8fc1;//超链接的链接颜色
 }
+
 //-------------------------------------------
 //更换行内代码颜色
-/*
+
 :root {
     // 行内代码背景色
-    --code-background-color: #f8f8f8;
+    --code-background-color: rgba(0, 0, 0, 0.06);
     // 行内代码前景色
-    --code-text-color: #e96900;
+    --code-text-color: #656565;
     // 暗色模式下样式
-    &[data-scheme="dark"] {
-      // 行内代码背景色
-      --code-background-color: #ff6d1b17;
-      // 行内代码前景色
-      --code-text-color: #e96900;
-    }
+    // &[data-scheme="dark"] {
+    //   // 行内代码背景色
+    //   --code-background-color: #ff6d1b17;
+    //   // 行内代码前景色
+    //   --code-text-color: #e96900;
+    // }
 }
-*/
+
 
 //-------------------------------------------
 //更换文章字体
@@ -87,6 +89,25 @@ body, .article-content {
 }
 */
 
+//------------------------
+//修改文章内所有超链接的字体颜色,包括自定义的series-block
+.article-content a,
+.series-block a {
+  color: var(--link-color) !important;
+  transition: color 0.2s;
+  box-shadow: none !important;
+  text-decoration: underline;
+}
+
+.article-content a:hover,
+.series-block a:hover {
+  color: #86d1d6 !important; /* 悬停时的文字颜色 */
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  text-decoration: underline;
+  transition: color 0.2s ease; /* 平滑的颜色过渡效果 */
+}
 //---------------------------------------------------
   // 文章内容图片圆角阴影
   .article-page .main-article .article-content {
@@ -270,3 +291,93 @@ $codeblock-max-height: 25em;
     transform: translateY(0);
   }
 }
+
+
+/******************************************************************************
+ *  Series 文章列表卡片（对应 series.html）
+ ******************************************************************************/
+
+
+/* 整个卡片 ------------------------------------------------------------------ */
+.series-block.card {
+  /* 让卡片左右留白；不与文章正文贴边                        */
+  margin: 1.25rem var(--container-padding) 2rem;
+  padding: var(--card-padding);
+  box-sizing: border-box;
+
+  /* 使用主题变量来保持风格一致                               */
+  //background: var(--card-background);          /* #fff */
+  background: #f8f8f8;          /* #fff */
+  border: 2px solid var(--table-border-color); /* #dadada */
+  border-radius: var(--card-border-radius);    /* 10px */
+
+  /* 字体微调：比正文略小一丢丢（正文 1.6rem）               */
+  font-size: var(--article-font-size);
+}
+
+/* 标题行 -------------------------------------------------------------------- */
+.series-heading {
+  margin: 0 0 0.8rem 0;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.series-heading .series-name {
+  /* 采用全站主色，若以后想替换主题色只需改变量即可           */
+  color: var(--accent-color);                  /* #575d84 */
+}
+
+/* 列表 ---------------------------------------------------------------------- */
+.series-list {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;                 /* 数字与文字左对齐 */
+}
+
+.series-list li {
+  padding: 0.35rem 0.6rem;
+  transition: background-color 0.15s ease;
+}
+
+/* 普通项的链接颜色 */
+.series-list li a {
+  color: var(--link-color);                    /* #8d8dc5 */
+  text-decoration: none;
+}
+
+/* hover 时轻微灰背景 + 下划线 */
+.series-list li:not(.active):hover
+.series-list li:not(.active):hover::marker {
+  //background: var(--code-background-color);    /* rgba(0,0,0,.06) */
+  text-decoration: underline;
+}
+
+/* 当前文章所在项 */
+.series-list li.active {
+  background: var(--card-background-selected); /* #eaeaea */
+  //font-weight: 700;
+}
+.series-list li.active a,
+.series-list li.active::marker {
+  color: black !important;          /* #000 */
+  pointer-events: none;
+  cursor: default;
+}
+/* 让普通条目的数字和文字保持一致（使用链接色） */
+.series-list li,
+.series-list li::marker {          /* ::marker 控制列表前的 1. 2. 3. */
+  color: var(--link-color);        /* #8d8dc5 */
+}
+
+
+/* 移动端再收一点左右边距 -------------------------------------------- */
+@media (max-width: 767px) {
+  .series-block.card {
+    margin-left: calc(var(--container-padding) / 2);
+    margin-right: calc(var(--container-padding) / 2);
+  }
+}
+
+
+
+

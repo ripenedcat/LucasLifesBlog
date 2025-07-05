@@ -379,5 +379,36 @@ $codeblock-max-height: 25em;
 }
 
 
+//-------------------------------
+//暗色模式
 
-
+[data-scheme="dark"] {
+  /* ① 普通前/后缀文字 */
+  .series-heading {
+    color: #e5e5e5;                 /* 或者用 var(--body-text-color) */
+  }
+  .series-block.card {
+    background : var(--card-background);
+    border-color : var(--table-border-color);
+  }
+  
+  .series-list li,
+  .series-list li::marker {
+    color : var(--link-color);
+  }
+  .series-list li:not(.active):hover,
+  .series-list li:not(.active):hover::marker {
+    background : var(--code-background-color);
+    text-decoration: underline;
+  }
+  .series-list li.active{
+    background : var(--card-background-selected);
+  }
+  /* active 项——暗色模式把黑色改成浅色 / 主题色 */
+  .series-list li.active,
+  .series-list li.active a,
+  .series-list li.active::marker {
+  /* 与正文文字保持一致，或者用你自己想要的颜色 */
+    color: #e5e5e5 !important;          /* 或者 var(--accent-color) */
+  }
+}

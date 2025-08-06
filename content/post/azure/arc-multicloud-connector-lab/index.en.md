@@ -10,7 +10,7 @@ tags = [
     "Arc Service Errors"
 ]
 image = "arc-installation-failed.png"
-# draft = true
+draft = true
 +++
 
 ## Prerequisites

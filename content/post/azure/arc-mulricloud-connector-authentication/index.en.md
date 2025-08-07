@@ -7,7 +7,8 @@ categories = [
 ]
 tags = [
     "Azure Arc",
-    "Arc Service Errors"
+    "Multicloud Connector",
+    "AWS EC2"
 ]
 image = "cover.png"
 # draft = true

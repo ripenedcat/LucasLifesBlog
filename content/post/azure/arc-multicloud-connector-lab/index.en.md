@@ -7,7 +7,8 @@ categories = [
 ]
 tags = [
     "Azure Arc",
-    "Multicloud Connector"
+    "Multicloud Connector",
+    "AWS EC2"
 ]
 image = "cover.png"
 # draft = true

@@ -1,16 +1,16 @@
 +++
 author = "Lucas Huang"
 date = '2025-08-06T15:49:22+08:00'
-title = "Arc"
+title = "Multicloud Connector Lab Practice with AWS EC2 Instance"
 categories = [
     "Azure"
 ]
 tags = [
     "Azure Arc",
-    "Arc Service Errors"
+    "Multicloud Connector"
 ]
-image = "arc-installation-failed.png"
-draft = true
+image = "cover.png"
+# draft = true
 +++
 
 ## Prerequisites

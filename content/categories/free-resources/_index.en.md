@@ -1,6 +1,6 @@
 ---
 title: "Free Resources"
-description: "Experience to build up a personal blog!"
+description: "Share free resource across the Internet!"
 image: "cover.png"
 style:
     background: "#eb95ab"

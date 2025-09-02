@@ -18,6 +18,8 @@ menu:
 Welcome to my blog, where I share my explorations of **Azure Cloud Services**, my research into **cryptocurrencies**, as well as various product recommendations and lessons learned from tech pitfalls.  
 If you enjoy my content, feel free to buy me a coffee ☕ (◍˃ ᵕ ˂◍)
 
+{{< buymeacoffee >}}
+
 ## About Me
 My name is just a code name, but you can call me Lucas.
 

@@ -48,8 +48,8 @@ ExamSpotter完全免费为所有用户提供服务！作为一名曾经的CCL考
 
 ### 🔗 官方链接
 
-- **🏠 ExamSpotter主站**: [ccl.examspotter.com](https://ccl.examspotter.com)
-- **📝 博客&联系我们**: [blogs.lucaslifes.com](https://blogs.lucaslifes.com)
+- **🏠 ExamSpotter主站**: [https://ccl.examspotter.com](https://ccl.examspotter.com)
+- **📝 博客&联系我们**: [https://blog.lucaslifes.com](https://blog.lucaslifes.com/zh-cn/p/naati-ccl-examspotter-%E6%82%A8%E7%9A%84%E4%B8%93%E5%B1%9E%E8%80%83%E8%AF%95%E4%BD%8D%E7%BD%AE%E7%9B%91%E6%8E%A7%E5%8A%A9%E6%89%8B/)
 
 ### 🎯 开始使用三步骤
 

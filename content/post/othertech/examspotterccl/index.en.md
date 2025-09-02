@@ -48,8 +48,8 @@ A love-powered project:
 
 ### 🔗 Official Links
 
-- **🏠 ExamSpotter Main Site**: [ccl.examspotter.com](https://ccl.examspotter.com)  
-- **📝 Blog & Contact**: [blogs.lucaslifes.com](https://blogs.lucaslifes.com)
+- **🏠 ExamSpotter Main Site**: [https://ccl.examspotter.com](https://ccl.examspotter.com)  
+- **📝 Blog & Contact**: [https://blog.lucaslifes.com](https://blog.lucaslifes.com/p/naati-ccl-examspotter-your-personal-exam-slot-monitoring-assistant/)
 
 ### 🎯 Three Steps to Get Started
 

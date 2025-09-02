@@ -20,7 +20,7 @@ languages:
         weight: 1
         params:
             sidebar:
-                subtitle: Wisdom in Bits, Stories in Moments.
+                subtitle: Wisdom in Bits,<br>Stories in Moments.
     zh-cn:
         languageName: 中文
         title: Lucas的博客

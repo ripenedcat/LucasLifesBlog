@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://blog.lucaslifes.com/en/sitemap.xml
+Sitemap: https://blog.lucaslifes.com/zh-cn/sitemap.xml

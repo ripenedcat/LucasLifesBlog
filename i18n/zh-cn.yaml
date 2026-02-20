@@ -1,2 +1,5 @@
 BelongsTo: "本篇文章属于"
 SeriesWord: "系列"
+footer:
+  privacy: "隐私政策"
+  terms: "服务条款"

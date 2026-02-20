@@ -1,2 +1,5 @@
 BelongsTo: "This article belongs to"
 SeriesWord: "series"
+footer:
+  privacy: "Privacy Policy"
+  terms: "Terms of Service"

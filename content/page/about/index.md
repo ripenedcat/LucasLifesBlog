@@ -27,6 +27,9 @@ Interests:
 - I love raising cats. I have three at home: two golden-shaded British Shorthair brothers and a blue-golden sister. The cover photo and site avatar feature my golden brother, Leon.
 - I’m not a professional developer, but I quite enjoy tinkering with code.
 
+## Contact Me
+If you have any questions or just want to say hi, feel free to reach out to me via email: [support@lucaslifes.com](mailto:support@lucaslifes.com).
+
 ## About This Blog
 Most posts here will be presented in both Chinese and English, taking full advantage of Hugo’s multilingual capabilities. If you spot any typos, please don’t hesitate to let me know!
 

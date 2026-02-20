@@ -4,8 +4,6 @@ date: 2024-05-20
 slug: "terms"
 ---
 
-Last updated: May 20, 2024
-
 Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the https://blog.lucaslifes.com/ website (the "Service") operated by Lucas's Blog ("us", "we", or "our").
 
 Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.

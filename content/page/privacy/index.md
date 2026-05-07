@@ -1,6 +1,6 @@
 ---
 title: "Privacy Policy"
-date: 2024-05-20
+date: 2026-05-07
 slug: "privacy"
 ---
 
@@ -16,9 +16,15 @@ Lucas's Blog follows a standard procedure of using log files. These files log vi
 
 Like any other website, Lucas's Blog uses "cookies". These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.
 
+## Third-Party Advertising Services
+
+Some pages on Lucas's Blog may display advertisements served by third-party advertising networks, including Monetag. These third-party advertising services may use cookies, web beacons, scripts, pixel tags, or similar technologies to deliver ads, measure ad performance, prevent fraud, and improve advertising-related services based on your browsing behavior, device information, browser information, IP address, page visit history, or approximate location data.
+
+We do not directly provide personally identifiable information to our third-party advertising partners, but they may collect and process relevant data in accordance with their own privacy policies. You can restrict or disable cookies through your browser settings and consult the respective advertising service provider's privacy policy to learn about their data handling practices and available opt-out options.
+
 ## Google DoubleClick DART Cookie
 
-Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to www.website.com and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – <https://policies.google.com/technologies/ads>
+Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to this website and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – <https://policies.google.com/technologies/ads>
 
 ## Our Advertising Partners
 
@@ -26,6 +32,7 @@ Some of advertisers on our site may use cookies and web beacons. Our advertising
 
 *   **Google**
     <https://policies.google.com/technologies/ads>
+*   **Monetag**
 
 ## Third Party Privacy Policies
 

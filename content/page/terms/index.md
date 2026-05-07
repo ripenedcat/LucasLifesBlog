@@ -1,6 +1,6 @@
 ---
 title: "Terms of Service"
-date: 2024-05-20
+date: 2026-05-07
 slug: "terms"
 ---
 
@@ -23,6 +23,12 @@ Our Service may contain links to third-party web sites or services that are not 
 Lucas's Blog has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that Lucas's Blog shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.
 
 We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.
+
+## Advertising and Third-Party Services
+
+Some pages on this Service may contain advertisements, scripts, or embedded content provided by third-party advertising networks, including Monetag. Third-party advertising services may collect, process, or use information related to your visit, device, browser, or ad interactions in accordance with their own terms and privacy policies.
+
+We do not control the content, display, data handling practices, or availability of third-party advertising services. Any interaction between you and third-party advertisements or external services is governed by the respective third party's terms and policies. Lucas's Blog shall not be held liable for any loss, damage, misleading content, or privacy-related issues arising from third-party advertisements, external websites, or services.
 
 ## Termination
 

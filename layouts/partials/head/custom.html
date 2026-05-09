@@ -20,6 +20,29 @@
   });
 })();
 </script>
+<script>
+(function () {
+  var vignetteLoaded = false;
+
+  function loadVignetteBanner() {
+    if (vignetteLoaded) return;
+    var scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollableHeight > 0 && window.scrollY / scrollableHeight < 0.18) return;
+
+    vignetteLoaded = true;
+    var target = [document.documentElement, document.body].filter(Boolean).pop();
+    var script = target.appendChild(document.createElement('script'));
+    script.dataset.zone = '10984287';
+    script.src = 'https://n6wxm.com/vignette.min.js';
+    window.removeEventListener('scroll', loadVignetteBanner);
+    window.removeEventListener('resize', loadVignetteBanner);
+  }
+
+  window.addEventListener('DOMContentLoaded', loadVignetteBanner);
+  window.addEventListener('scroll', loadVignetteBanner, { passive: true });
+  window.addEventListener('resize', loadVignetteBanner);
+})();
+</script>
 {{ end }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
